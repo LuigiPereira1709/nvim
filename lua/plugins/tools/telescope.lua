@@ -8,10 +8,25 @@ return {
     "nvim-telescope/telescope-ui-select.nvim",
     "kkharji/sqlite.lua",
   },
+
+  -- require("utils.find_sessions").find_sessions(),
   keys = {
       {
       "fb", function() require("telescope.builtin").buffers({
           sort_lastused = true,
+          attach_mappings = function(_, map)
+            -- Delete buffer
+            map("i", "<C-d>", function(prompt_bufnr)
+              local selection = require("telescope.actions.state").get_selected_entry()
+              require("telescope.actions").close(prompt_bufnr)
+              if selection then
+                vim.api.nvim_buf_delete(selection.bufnr, { force = true })
+                buf_name = selection.path:gsub(".*/", ""):gsub("%.%.?%w+$", "")
+                print("Deleted buffer: " .. buf_name)
+              end
+            end)
+            return true
+          end,
           -- ignore_current_buffer = true,
       })
   end, desc = "Buffers",
@@ -21,7 +36,8 @@ return {
       "ff", function()
         require("telescope.builtin").find_files({
           prompt_title = "Find Files",
-          hidden = true,
+          hidden = false,
+          previewer = true,
         })
       end, desc = "Find File (CWD)",
   },
@@ -30,6 +46,7 @@ return {
         require("telescope.builtin").git_files({
           prompt_title = "Git Files",
           hidden = true,
+          previewer = true,
         })
       end, desc = "Search Git Files",
     },
@@ -44,6 +61,7 @@ return {
       "fo", function()
         require("telescope.builtin").oldfiles({
           prompt_title = "Recent Files",
+          previewer = true,
         })
       end, desc = "Open Recent File",
     },
@@ -51,6 +69,8 @@ return {
       "ft", function()
         require("telescope.builtin").live_grep({
           prompt_title = "Live Grep",
+          hidden = true,
+          previewer = true,
         })
       end, desc = "Live Grep",
     },
@@ -61,6 +81,11 @@ return {
         })
       end, desc = "Git commits",
     },
+    {   -- Find Sessions
+        "fs", function()
+          vim.cmd("FindSessions")
+        end, desc = "Find Sessions",
+      }
   },
   config = function()
     local telescope = require("telescope")
@@ -108,33 +133,33 @@ return {
         },
         color_devicons = true,
       },
-      pickers = {
-        find_files = {
-          hidden = true,
-          previewer = true,
-          prompt_title = "Find Files",
-        },
-        git_files = {
-          hidden = true,
-          previewer = true,
-          prompt_title = "Git Files",
-        },
-        live_grep = {
-          previewer = true,
-          prompt_title = "Live Grep",
-        },
-        buffers = {
-          mappings = {
-            i = {
-              ["<c-d>"] = actions.delete_buffer,
-            },
-            n = {
-              ["<c-d>"] = actions.delete_buffer,
-            },
-          },
-          previewer = true,
-        },
-      },
+      -- pickers = {
+      --   find_files = {
+      --     hidden = true,
+      --     previewer = true,
+      --     prompt_title = "Find Files",
+      --   },
+      --   git_files = {
+      --     hidden = true,
+      --     previewer = true,
+      --     prompt_title = "Git Files",
+      --   },
+      --   live_grep = {
+      --     previewer = true,
+      --     prompt_title = "Live Grep",
+      --   },
+      --   buffers = {
+      --     mappings = {
+      --       i = {
+      --         ["<c-d>"] = actions.delete_buffer,
+      --       },
+      --       n = {
+      --         ["<c-d>"] = actions.delete_buffer,
+      --       },
+      --     },
+      --     previewer = true,
+      --   },
+      -- },
       extensions = {
         fzf = {
           fuzzy = true,

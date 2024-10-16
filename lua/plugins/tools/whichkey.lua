@@ -39,7 +39,8 @@ return {
 
         { prefix.space .. "h", group = "Harpoon", icon = icons.harpoon },
         { prefix.space .. "t", group = "Terminal", icon = icons.terminal },
-        { prefix.space .. "c", group = "Cellular Animations", icon = "󰐱 " },
+        { prefix.space .. "a", group = "Cellular Animations", icon = "󰐱 " },
+        { prefix.space .. "c", group = "Copilot Options", icon = icons.git.Copilot },
 
         -- Write commands
         { prefix.space .. "w", group = "Write Commands", icon = "✏ " },
@@ -93,8 +94,9 @@ return {
         -- Debug
         { prefix.space .. "d", group = "Debug Options", icon = icons.diagnostics.Debug },
 
-        -- { "<leader>s", group = "Sessions", icon = "󰔚" },
-      -- { "<space>T", group = "Tests", icon = "󰙨" },
+        { prefix.space .. "s", group = "Sessions Save", icon = "󰔚 " },
+
+        -- { "<space>T", group = "Tests", icon = "󰙨" },
       --   { "<space>d", group = "Debugging", icon = "" },
       --   { "<space>g", group = "Git", icon = "󰊢" },
       --   { "<leader>l", group = "LSP", icon = "" },

@@ -9,9 +9,9 @@ vim.opt.sidescrolloff = 8 -- number of columns to keep to the left/right of curs
 
 -- Tab spacing/behavior
 vim.opt.expandtab = true -- convert tabs to spaces
-vim.opt.shiftwidth = 4 -- number of spaces inserted for each indentation level
-vim.opt.tabstop = 4 -- number of spaces inserted for tab character
-vim.opt.softtabstop = 4 -- number of spaces inserted for <Tab> key
+vim.opt.shiftwidth = 2 -- number of spaces inserted for each indentation level
+vim.opt.tabstop = 2 -- number of spaces inserted for tab character
+vim.opt.softtabstop = 2 -- number of spaces inserted for <Tab> key
 vim.opt.smartindent = true -- enable smart indentation
 vim.opt.breakindent = true -- enable line breaking indentation
 

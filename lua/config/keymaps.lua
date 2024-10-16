@@ -73,3 +73,4 @@ keymap.set("n", "<C-q>", ":tabclose<cr>", opts)
 -- Close buffer
 keymap.set("n", "qq", ":quit<cr>", opts)
 keymap.set("n", "q!", ":q!<cr>", opts)
+keymap.set("n", "qa", ":qa!<cr>", opts)

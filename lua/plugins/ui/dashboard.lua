@@ -44,18 +44,25 @@ local center = {
         group = "@markup.heading.1.markdown",
     },
     {
+      desc = "Find Sessions ",
+      key = "s",
+      icon = " ",
+      action = "FindSessions",
+      group = "@markup.heading.2.markdown",
+    },
+    {
         desc = "New Spring Project",
-        key = "s",
+        key = "n",
         icon = " ",
         action = "Springtime",
-        group = "@markup.heading.2.markdown"
+        group = "@markup.heading.3.markdown"
     },
     {
         desc = "Exit ",
         key = "q",
         icon = " ",
         action = "exit",
-        group = "@markup.heading.6.markdown",
+        group = "@markup.heading.4.markdown",
     },
 }
 

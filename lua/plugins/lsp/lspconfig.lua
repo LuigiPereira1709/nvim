@@ -89,7 +89,6 @@ return {
     },
     -- Keymaps 
     vim.keymap.set("n", "<space>ms", ":Mason<cr>", { desc = "Open Mason", noremap = true, silent = true }),
-    vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ctions" }),
     vim.keymap.set("n", "<space>mi", ":MasonInstall ", { desc = "Mason Install", noremap = true }),
     vim.keymap.set("n", "<space>ml", ":MasonLog<cr>", { desc = "Mason Log", noremap = true, silent = true }),
     vim.keymap.set("n", "<space>mu", ":MasonUpdate ", { desc = "Mason Update", noremap = true }),

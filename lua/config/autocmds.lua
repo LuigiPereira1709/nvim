@@ -42,3 +42,34 @@ vim.cmd [[
         autocmd FileType java lua require'config.jdtls'.setup_jdtls()
     augroup end
 ]]
+
+-- Telescope find sessions
+vim.api.nvim_create_user_command('FindSessions', function()
+    require("telescope.builtin").find_files({
+        prompt_title = "Sessions",
+        cwd = ".sessions/",
+        previewer = true,
+        attach_mappings = function(_, map)
+          -- Pick session
+          map("i", "<CR>", function(prompt_bufnr)
+            local selection = require("telescope.actions.state").get_selected_entry()
+            require("telescope.actions").close(prompt_bufnr)
+            if selection then
+              vim.cmd("SessionsLoad " .. selection.path)
+            end
+          end)
+
+          -- Delete session
+          map("i", "<C-d>", function(prompt_bufnr)
+            local selection = require("telescope.actions.state").get_selected_entry()
+            require("telescope.actions").close(prompt_bufnr)
+            if selection then
+              local selection_path = selection.path
+              os.remove(selection_path)
+              print("Deleted: " .. selection_path)
+            end
+          end)
+          return true
+        end
+    })
+end, {})
