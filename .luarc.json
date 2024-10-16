@@ -1,0 +1,9 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "mod_path",
+        "dd",
+        "plugin_loader",
+        "plugins"
+    ]
+}
