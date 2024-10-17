@@ -68,7 +68,7 @@ local center = {
 
 local footer = {
     "",
-    "nvim version " .. version.major .. "." .. version.minor,
+    "Estou em um relacionamento sério com o meu código… mas ele sempre me decepciona.",
 }
 
 return {
@@ -80,7 +80,7 @@ return {
             shortcut = center,
             footer = footer,
             packages = { enable = false },
-            mru = { limit = 5, icon = 'your icon', label = '', cwd_only = false },
+            mru = { limit = 5, icon = ' ', label = 'Recent Files', cwd_only = false },
         },
     },
 }

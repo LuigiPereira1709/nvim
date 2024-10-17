@@ -22,34 +22,34 @@ return {
 
         -- Setup the dap ui with default configuration
         dapui.setup({
-          -- layouts = {
-          --   {
-          --     elements = {
-          --       { id = 'scopes', size = 0.25 },
-          --       { id = 'breakpoints', size = 0.25 },
-          --       { id = 'stacks', size = 0.25 },
-          --       { id = 'watches', size = 0.25 },
-          --     },
-          --     size = 40,
-          --     position = 'left',
-          --   },
-          --   {
-          --     elements = {
-          --       { id = 'repl', size = 0.5 },
-          --       { id = 'console', size = 0.5 },
-          --     },
-          --     size = 10,
-          --     position = 'bottom',
-          --   },
-          -- },
-          -- floating = {
-          --   max_height = nil,  -- These can be integers or a float between 0 and 1.
-          --   max_width = nil,   -- Floats will be treated as percentage of your screen.
-          -- },
-          -- windows = { indent = 1 },
-          -- render = {
-          --   max_type_length = nil, -- Can be integer or nil.
-          -- }
+          layouts = {
+            {
+              elements = {
+                { id = 'scopes', size = 0.25 },
+                { id = 'breakpoints', size = 0.25 },
+                { id = 'stacks', size = 0.25 },
+                { id = 'watches', size = 0.25 },
+              },
+              size = 40,
+              position = 'left',
+            },
+            {
+              elements = {
+                { id = 'repl', size = 0.5 },
+                { id = 'console', size = 0.5 },
+              },
+              size = 10,
+              position = 'bottom',
+            },
+          },
+          floating = {
+            max_height = nil,  -- These can be integers or a float between 0 and 1.
+            max_width = nil,   -- Floats will be treated as percentage of your screen.
+          },
+          windows = { indent = 1 },
+          render = {
+            max_type_length = nil, -- Can be integer or nil.
+          }
         })
 
          -- setup an event listener for when the debugger is launched
