@@ -66,7 +66,8 @@ vim.api.nvim_create_user_command('FindSessions', function()
             if selection then
               local selection_path = selection.path
               os.remove(selection_path)
-              print("Deleted: " .. selection_path)
+              selection_name = selection.path:gsub(".*/", ""):gsub("%.%.?%w+$", "")
+              print("Deleted: " .. selection_name)
             end
           end)
           return true
