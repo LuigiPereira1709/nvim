@@ -27,7 +27,7 @@ require("lazy").setup({
 		-- },
         { import = "plugins.git_integration"},
         { import = "plugins.ui"},
-        { import = "plugins.dap"},
+        { import = "plugins.debugger"},
         { import = "plugins.tools"},
         { import = "plugins.lsp"},
         { import = "plugins"},
