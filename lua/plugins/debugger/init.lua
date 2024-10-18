@@ -2,6 +2,6 @@ plugins = {}
 
 plugin_loader = require("utils.load_plugins")
 
-plugin_loader.load_plugins(plugins, "/plugins/dap/")
+plugin_loader.load_plugins(plugins, "/plugins/debugger/")
 
 return plugins
