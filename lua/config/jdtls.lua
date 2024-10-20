@@ -61,32 +61,21 @@ local function java_keymaps()
     -- Allow yourself/register to run JdtShell as a Vim command
     vim.cmd("command! -buffer JdtJshell lua require('jdtls').jshell()")
 
-    -- Set a Vim motion to <Space> + <Shift>J + o to organize imports in normal mode
     vim.keymap.set('n', '<space>jo', "<Cmd> lua require('jdtls').organize_imports()<CR>",
         { desc = "[J]ava [O]rganize Imports" })
-    -- Set a Vim motion to <Space> + v to extract the code selected in visual mode to a variable
     vim.keymap.set('v', '<space>jv', "<Esc><Cmd> lua require('jdtls').extract_variable(true)<CR>",
         { desc = "[J]ava Extract [V]ariable" })
-    -- Set a Vim motion to <Space> + c to extract the code selected in visual mode to a static variable
     vim.keymap.set('v', '<space>jc', "<Esc><Cmd> lua require('jdtls').extract_constant(true)<CR>",
         { desc = "[J]ava Extract [C]onstant" })
-    -- Set a Vim motion to <Space> + <Shift>J + t to run the test method currently under the cursor
     vim.keymap.set('n', '<space>jt', "<Cmd> lua require('jdtls').test_nearest_method()<CR>",
         { desc = "[J]ava [T]est Method" })
-    -- Set a Vim motion to <Space> + <Shift>J + <Shift>T to run an entire test suite (class)
     vim.keymap.set('n', '<space>jT', "<Cmd> lua require('jdtls').test_class()<CR>", { desc = "[J]ava [T]est Class" })
-    -- Set a Vim motion to <Space> + <Shift>J + u to update the project configuration
     vim.keymap.set('n', '<space>ju', "<Cmd> JdtUpdateConfig<CR>", { desc = "[J]ava [U]pdate Config" })
-    -- Set a Vim motion to <Space> + jwr to wipe data and restart java lsp
-    vim.keymap.set("v", "<space>jr","<Cmd> JdtRestart<cr>", { desc = "[J]ava [R]estart"})
-    -- Set a Vim motion to <Space> + jwr to wipe data and restart java lsp
+    vim.keymap.set("n", "<space>jr","<Cmd> JdtRestart<cr>", { desc = "[J]ava [R]estart"})
     vim.keymap.set("n", "<space>jb","<Cmd> JdtBytecode<cr>", { desc = "[J]ava [B]ytecode"})
-    -- Set a Vim motion to <Space> + jwr to wipe data and restart java lsp
     vim.keymap.set("n", "<space>jj","<Cmd> JdtJshell<cr>", { desc = "[J]ava [J]shell"})
-    -- Set a Vim motion to <Space> + jwr to wipe data and restart java lsp
     vim.keymap.set("n", "<space>jl","<Cmd> JdtShowLogs<cr>", { desc = "[J]ava [L]ogs"})
     vim.keymap.set("n", "<space>js",":JdtSetRuntime ", { desc = "[J]ava [S]et Runtime"})
-    vim.keymap.set("n", "<space>jc","<Cmd> JdtCompile<cr>", { desc = "[J]ava [C]ompile"})
 end
 
 local function setup_jdtls()
@@ -230,7 +219,17 @@ local function setup_jdtls()
             },
             -- If changes to the project will require the developer to update the projects configuration advise the developer before accepting the change
             configuration = {
-                updateBuildConfiguration = "interactive"
+                updateBuildConfiguration = "interactive",
+                runtimes = {
+                  {
+                    name = "JavaSE-21",
+                    path = "/usr/lib/jvm/java-21-openjdk/",
+                  },
+                  {
+                    name = 'JavaSE-17',
+                    path = '/usr/lib/jvm/java-17-openjdk/',
+                  }
+                }
             },
             -- enable code lens in the lsp
             referencesCodeLens = {

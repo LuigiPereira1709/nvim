@@ -15,7 +15,7 @@ return {
                     plugins = {
                         pyflakes = { enabled = true },
                         pylint = { enabled = true },
-                        autopep9 = { enabled = true },
+                        autopep8 = { enabled = true },
                         mypy = { enabled = true },
                     },
                 },

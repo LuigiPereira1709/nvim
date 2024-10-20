@@ -1,16 +1,10 @@
 return {
-    {
-        "ray-x/lsp_signature.nvim",
-        config = function()
-            require "lsp_signature".setup()
-        end
-    },
    {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             -- ensure that we have lua language server, typescript launguage server, java language server, and java test language server are installed
             require("mason-lspconfig").setup({
-                ensure_installed = { "pylsp", "jdtls", 'lua_ls' },
+                ensure_installed = { "pyright", "jdtls", 'lua_ls' },
             })
         end,
     },
@@ -27,6 +21,10 @@ return {
 
             -- setup the lua language server
             lspconfig.lua_ls.setup({
+                capabilities = capabilities,
+            })
+
+            lspconfig.gradle_ls.setup({
                 capabilities = capabilities,
             })
 

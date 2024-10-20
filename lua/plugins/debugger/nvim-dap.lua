@@ -76,8 +76,5 @@ return {
         vim.api.nvim_set_keymap('n', '<space>dw', '<cmd>lua require("dapui").float_element("watches")<CR>', { noremap = true, silent = true })
         vim.api.nvim_set_keymap('n', '<space>dr', '<cmd>lua require("dapui").float_element("repl")<CR>', { noremap = true, silent = true })
         vim.api.nvim_set_keymap('n', '<space>dc', '<cmd>lua require("dapui").float_element("console")<CR>', { noremap = true, silent = true })
-
-
-
     end
 }

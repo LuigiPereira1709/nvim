@@ -10,7 +10,7 @@ return {
         local WIDTH_RATIO = 0.5
 
 		require("nvim-tree").setup({
-			hijack_netrw = true,
+			hijack_netrw = false,
 			auto_reload_on_write = true,
 			sync_root_with_cwd = true,
 
