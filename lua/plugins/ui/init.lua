@@ -1,7 +1,9 @@
-plugins = {}
+return {
+  { import = 'plugins.ui.colorscheme' },
+  { import = 'plugins.ui.utils' },
+  { import = 'plugins.ui.statusline' },
+  { import = 'plugins.ui.layout' },
+  { import = 'plugins.ui.fun' },
+  { import = 'plugins.ui.enchancement' },
+}
 
-plugin_loader = require("utils.load_plugins")
-
-plugin_loader.load_plugins(plugins, 'plugins/ui')
-
-return plugins

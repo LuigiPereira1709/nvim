@@ -1,0 +1,9 @@
+colorscheme=rose-pine
+TelescopePromptTitle_fg=#111111
+TelescopePromptTitle_bg=#5e838f
+TelescopeResultsTitle_fg=#111111
+TelescopeResultsTitle_bg=#676385
+TelescopePreviewTitle_fg=#111111
+TelescopePreviewTitle_bg=#b34f6d
+HlChunk1=#5e838f
+HlChunk2=#b34f6d
