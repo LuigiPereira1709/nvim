@@ -1,6 +1,9 @@
 -- NOTE: Show Better Diagnostic Inline
 return {
   "rachartier/tiny-inline-diagnostic.nvim",
-  event = "BufReadPost",
-  opts = {},
+  enabled = true,
+  event = "LspAttach",
+  init = function()
+    require('tiny-inline-diagnostic').setup()
+  end
 }

@@ -1,5 +1,4 @@
 -- NOTE: Neovim options
-
 local options = {
   laststatus = 3, -- global statusline
   backup = false, -- creates a backup file
@@ -8,7 +7,7 @@ local options = {
   hidden = true, -- required to keep multiple buffers and open multiple buffers
   ignorecase = true, -- ignore case in search patterns
   mouse = "a", -- allow the mouse to be used in neovim
-  pumheight = 8, -- pop up menu height
+  -- pumheight = 8, -- pop up menu height
   pumblend = 0, -- transparency of pop-up menu
   showmode = false, -- we don't need to see things like -- INSERT -- anymore
   smartcase = true, -- smart case
@@ -55,6 +54,6 @@ for name, value in pairs(options) do
 end
 
 -- add binaries installed by mason.nvim to path
-vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, vim.g.path_separator)
-  .. vim.g.path_delimiter
-  .. vim.env.PATH
+-- vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, vim.g.path_separator)
+--   .. vim.g.path_delimiter
+--   .. vim.env.PATH

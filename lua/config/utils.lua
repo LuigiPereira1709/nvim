@@ -26,7 +26,7 @@ command("SaveColorscheme", function()
   extract_colors()
 
   -- Save data on colorscheme.txt
-  local file = io.open(vim.fn.stdpath "config" .. "/lua/core/.colorscheme.txt", "w")
+  local file = io.open(vim.fn.stdpath "config" .. "/lua/config/.colorscheme.txt", "w")
   if file then
     file:write("colorscheme=" .. colorscheme .. "\n")
     file:write("TelescopePromptTitle_fg=" .. (colors.TelescopePromptTitle_fg or "NONE") .. "\n")
@@ -44,7 +44,7 @@ command("SaveColorscheme", function()
 end, { desc = "Save actual colorscheme" })
 
 command("LoadColorscheme", function()
-  local file = io.open(vim.fn.stdpath "config" .. "/lua/core/.colorscheme.txt", "r")
+  local file = io.open(vim.fn.stdpath "config" .. "/lua/config/.colorscheme.txt", "r")
   if file then
     local config = {}
     for line in file:lines() do

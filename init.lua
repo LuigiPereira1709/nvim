@@ -1,4 +1,4 @@
-require "core.globals"
+vim.g.mapleader = " "
 
 if vim.version().minor >= 11 then
   vim.tbl_add_reverse_lookup = function(tbl)
@@ -19,7 +19,7 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 -- NOTE: lazy.nvim options
-local lazy_config = require "core.lazy"
+local lazy_config = require "config.lazy"
 
 -- NOTE: Load plugins
 require("lazy").setup({

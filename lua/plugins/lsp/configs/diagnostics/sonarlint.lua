@@ -1,22 +1,20 @@
- 
 -- NOTE: SonarLint
 return {
   url = "https://gitlab.com/schrieveslaach/sonarlint.nvim",
-  enabled = false,
-  ft = { "python", "cpp", "java" },
-  config = function()
-    local mason = vim.fn.stdpath "data" .. "/mason"
+ -- enabled = true,
+  -- ft = { "python", "cpp", "java" },
+  init = function()
     require("sonarlint").setup {
       server = {
         cmd = {
-          mason .. "/bin/sonarlint-language-server",
+          "sonarlint-language-server",
           -- Ensure that sonarlint-language-server uses stdio channel
           "-stdio",
           "-analyzers",
           -- paths to the analyzers you need, using those for python and java in this example
-          mason .. "/share/sonarlint-analyzers/sonarpython.jar",
-          mason .. "/share/sonarlint-analyzers/sonarcfamily.jar",
-          mason .. "/share/sonarlint-analyzers/sonarjava.jar",
+          vim.fn.expand "$MASON/share/sonarlint-analyzers/sonarpython.jar",
+          vim.fn.expand "$MASON/share/sonarlint-analyzers/sonarcfamily.jar",
+          vim.fn.expand "$MASON/share/sonarlint-analyzers/sonarjava.jar",
         },
       },
       filetypes = {

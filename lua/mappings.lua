@@ -71,20 +71,6 @@ vim.keymap.set("n", "<leader>oS", function()
   end
 end, { desc = "Options | Toggle Spell Check", silent = true })
 
--- Toggle Theme
-vim.keymap.set("n", "<leader>ot", function()
-  local opts = require("nvconfig").base46
-  require("base46").toggle_theme()
-  if opts.theme_toggle == nil or (opts.theme ~= opts.theme_toggle[1] and opts.theme ~= opts.theme_toggle[2]) then
-    return
-  end
-  if opts.theme == opts.theme_toggle[1] then
-    vim.notify("Dark Mode", vim.log.levels.INFO, { title = "Theme" })
-  else
-    vim.notify("Light Mode", vim.log.levels.INFO, { title = "Theme" })
-  end
-end, { desc = "Options | Toggle Theme", silent = true })
-
 -- Toggle Wrap
 vim.keymap.set("n", "<leader>ow", function()
   vim.wo.wrap = not vim.wo.wrap
@@ -95,23 +81,17 @@ vim.keymap.set("n", "<leader>ow", function()
   end
 end, { desc = "Options | Toggle Wrap", silent = true })
 
--- Better Down
-vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { desc = "General | Better Down", expr = true, silent = true })
-
--- Better Up
-vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { desc = "General | Better Up", expr = true, silent = true })
-
 -- Go to upper window
-vim.keymap.set("n", "bj", "<C-w>j", { desc = "General | Go to upper window", silent = true, noremap = true })
+vim.keymap.set("n", "<leader>bj", "<C-w>j", { desc = "General | Go to upper window", silent = true, noremap = true })
 
 -- Go to lower window
-vim.keymap.set("n", "bk", "<C-w>k", { desc = "General | Go to lower window", silent = true, noremap = true })
+vim.keymap.set("n", "<leader>bk", "<C-w>k", { desc = "General | Go to lower window", silent = true, noremap = true })
 
 -- Go to left window
-vim.keymap.set("n", 'bh', "<C-w>h", { desc = "General | Go to left window", silent = true, noremap = true })
+vim.keymap.set("n", '<leader>bh', "<C-w>h", { desc = "General | Go to left window", silent = true, noremap = true })
 
 -- Go to right window
-vim.keymap.set("n", "bl", "<C-w>l", { desc = "General | Go to right window", silent = true, noremap = true })
+vim.keymap.set("n", "<leader>bl", "<C-w>l", { desc = "General | Go to right window", silent = true, noremap = true })
 
 -- Close window
 vim.keymap.set("n", "<leader>w", function()
@@ -181,12 +161,6 @@ vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { desc = "General | Move the
 -- Move the line down (Insert Mode)
 vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { desc = "General | Move the line down", silent = true })
 
--- Better Down (Visual Mode)
-vim.keymap.set("v", "j", "v:count == 0 ? 'gj' : 'j'", { desc = "General | Better Down", expr = true, silent = true })
-
--- Better Up (Visual Mode)
-vim.keymap.set("v", "k", "v:count == 0 ? 'gk' : 'k'", { desc = "General | Better Up", expr = true, silent = true })
-
 -- Better Paste (Visual Mode)
 vim.keymap.set("v", "p", '"_dP', { desc = "General | Better Paste", silent = true })
 
@@ -250,15 +224,6 @@ vim.keymap.set("n", "<leader>ng", function()
     cwd = cwd,
   }
 end, { desc = "Neovim | Grep Config Files", silent = true })
-
--- Toggle Cheatsheet
-vim.keymap.set("n", "<leader>nc", function()
-  if vim.bo.filetype == "nvcheatsheet" then
-    vim.cmd "silent! close"
-  else
-    vim.cmd "NvCheatsheet"
-  end
-end, { desc = "Neovim | Toggle Cheatsheet", silent = true })
 
 -- Inspect
 vim.keymap.set("n", "<leader>ni", function()

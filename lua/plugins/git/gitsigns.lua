@@ -1,6 +1,7 @@
 -- NOTE: Git Signs
 return {
   "lewis6991/gitsigns.nvim",
+  dependencies = { 'schrieveslaach/sonarlint.nvim'},
   init = function()
     vim.keymap.set(
       "n",

@@ -62,6 +62,9 @@ return {
         DashboardFooter = { fg = "iris" },
         DashboardHeader = { fg = "love" },
 
+        -- Diagnostic
+        DiagnosticError = { fg = "love" },
+
         -- MiniIndentscope
         MiniIndentscopeSymbol = { fg = "muted" },
 

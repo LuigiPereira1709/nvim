@@ -66,7 +66,7 @@ return {
 
     if vim.g.border_enabled then
       -- NOTE: Enable border for LSP UI Windows (lspinfo)
-      require("lspconfig.ui.windows").default_options.border = "rounded"
+      -- require("lspconfig.ui.windows").default_options.border = "rounded"
 
       -- NOTE: Enable border for LSP hover, signature help. But cannot use along with Noice's hover, signature help!
 
