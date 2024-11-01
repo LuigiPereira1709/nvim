@@ -20,8 +20,8 @@ return {
       },
 
       styles = {
-        -- bold = true,
-        -- italic = true,
+        bold = true,
+        italic = false,
         transparency = true,
       },
 
@@ -71,6 +71,7 @@ return {
         -- Smooth Cursor matrix
         SmoothCursor = { fg = "love" },
         SmoothCursorGreen = { fg = "pine" },
+
 
         -- Java
         ["@lsp.typemod.class.declaration.java"] = { fg = "rose" },

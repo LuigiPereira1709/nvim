@@ -118,7 +118,7 @@ return {
       "<leader>ft",
       function()
         require("telescope.builtin").find_files {
-          cwd = "lua/plugins/ui/colorscheme/",
+          cwd = vim.fn.stdpath "config" .. "/lua/plugins/ui/colorscheme",
           prompt_title = "Change Colorschemes",
           attach_mappings = function(_, map)
             -- Pick Colorscheme
