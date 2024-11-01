@@ -5,7 +5,7 @@ return {
             -- "neovim/nvim-lspconfig",
             -- "mfussenegger/nvim-jdtls",
         },
-        init = function()
+        config = function()
             -- gain acces to the springboot nvim plugin and its functions
             local springboot_nvim = require("springboot-nvim")
 

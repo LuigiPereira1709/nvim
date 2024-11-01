@@ -7,26 +7,42 @@ local augroup = vim.api.nvim_create_augroup
 -- General Settings
 local general = augroup("General", { clear = true })
 
--- -- Enable Line Number in Telescope Preview
--- autocmd("User", {
---   pattern = "TelescopePreviewerLoaded",
---   callback = function()
---     vim.opt_local.number = false
---   end,
---   group = general,
---   desc = "Enable Line Number in Telescope Preview",
--- })
+autocmd("VimEnter", {
+  callback = function(data)
+    -- buffer is a directory
+    local directory = vim.fn.isdirectory(data.file) == 1
 
--- -- Hide folds and Disable statuscolumn in these filetypes
--- autocmd("FileType", {
---   pattern = { "sagaoutline" },
---   callback = function()
---     vim.opt_local.foldcolumn = "0"
---     vim.opt_local.stc = "" -- not really important
---   end,
---   group = general,
---   desc = "Disable Fold & StatusColumn",
--- })
+    -- change to the directory
+    if directory then
+      vim.cmd.cd(data.file)
+      vim.cmd "Telescope find_files"
+      -- require("nvim-tree.api").tree.open()
+    end
+  end,
+  group = general,
+  desc = "Open Telescope when it's a Directory",
+})
+
+-- Enable Line Number in Telescope Preview
+autocmd("User", {
+  pattern = "TelescopePreviewerLoaded",
+  callback = function()
+    vim.opt_local.number = false
+  end,
+  group = general,
+  desc = "Enable Line Number in Telescope Preview",
+})
+
+-- Hide folds and Disable statuscolumn in these filetypes
+autocmd("FileType", {
+  pattern = { "sagaoutline" },
+  callback = function()
+    vim.opt_local.foldcolumn = "0"
+    vim.opt_local.stc = "" -- not really important
+  end,
+  group = general,
+  desc = "Disable Fold & StatusColumn",
+})
 
 -- Remove this if there's an issue
 autocmd({ "BufReadPost", "BufNewFile" }, {
@@ -53,15 +69,15 @@ autocmd("TermOpen", {
   desc = "Terminal Options",
 })
 
--- autocmd("BufReadPost", {
---   callback = function()
---     if fn.line "'\"" > 1 and fn.line "'\"" <= fn.line "$" then
---       vim.cmd 'normal! g`"'
---     end
---   end,
---   group = general,
---   desc = "Go To The Last Cursor Position",
--- })
+autocmd("BufReadPost", {
+  callback = function()
+    if fn.line "'\"" > 1 and fn.line "'\"" <= fn.line "$" then
+      vim.cmd 'normal! g`"'
+    end
+  end,
+  group = general,
+  desc = "Go To The Last Cursor Position",
+})
 
 autocmd("TextYankPost", {
   callback = function()
@@ -71,13 +87,13 @@ autocmd("TextYankPost", {
   desc = "Highlight when yanking",
 })
 
--- autocmd({ "BufEnter", "BufNewFile" }, {
---   callback = function()
---     vim.o.showtabline = 0
---   end,
---   group = general,
---   desc = "Disable Tabline",
--- })
+autocmd({ "BufEnter", "BufNewFile" }, {
+  callback = function()
+    vim.o.showtabline = 0
+  end,
+  group = general,
+  desc = "Disable Tabline",
+})
 
 autocmd("BufEnter", {
   callback = function()
@@ -166,7 +182,7 @@ autocmd("Colorscheme", {
 })
 
 -- Load Colorscheme and highlight settings
-autocmd("VimEnter", {
+vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     vim.cmd('LoadColorscheme')
   end

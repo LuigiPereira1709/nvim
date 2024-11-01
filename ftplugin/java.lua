@@ -27,7 +27,15 @@ for _, file in pairs(equinox_path) do
 end
 
 WORKSPACE_PATH = vim.fn.stdpath "data" .. "/workspace/"
-OS_NAME = "linux"
+if vim.g.os == "Darwin" then
+  OS_NAME = "mac"
+elseif vim.g.os == "Linux" then
+  OS_NAME = "linux"
+elseif vim.g.os == "Windows" then
+  OS_NAME = "win"
+else
+  vim.notify("Unsupported OS", vim.log.levels.WARN, { title = "Jdtls" })
+end
 
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 
@@ -111,9 +119,8 @@ local config = {
 
 local keymap = vim.keymap.set
 
-keymap("n", "<A-o>", ":lua require'jdtls'.organize_imports()<cr>", { silent = true, buffer = bufnr })
-keymap("n", "<A-u>", ":lua require'jdtls'.update_project_config()<cr>", { silent = true, buffer = bufnr })
-keymap("n", "crv", ":lua require'jdtls'.extract_variable()<cr>", { silent = true })
+keymap("n", "A-o", ":lua require'jdtls'.organize_imports()<cr>", { silent = true, buffer = bufnr })
+keymap("n", "crv", ":lua require'jdtls'.extract_variable()<cr>", { silent = true, buffer = bufnr })
 keymap("v", "crv", "<Esc>:lua require'jdtls'.extract_variable(true)<cr>", { silent = true, buffer = bufnr })
 keymap("n", "crc", ":lua require'jdtls'.extract_constant()<cr>", { silent = true, buffer = bufnr })
 keymap("v", "crc", "<Esc>:lua require'jdtls'.extract_constant(true)<cr>", { silent = true, buffer = bufnr })
