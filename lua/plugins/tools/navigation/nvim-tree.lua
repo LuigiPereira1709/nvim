@@ -8,6 +8,7 @@ local function on_attach(bufnr)
   api.config.mappings.default_on_attach(bufnr)
 
   vim.keymap.set("n", "l", api.node.open.edit, opts "Open")
+  vim.keymap.set("n", "h", api.node.open.edit, opts "Close")
   vim.keymap.set("n", "u", api.tree.change_root_to_parent, opts "Up")
 end
 

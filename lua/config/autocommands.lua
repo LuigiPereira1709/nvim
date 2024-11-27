@@ -79,13 +79,13 @@ autocmd("BufReadPost", {
   desc = "Go To The Last Cursor Position",
 })
 
-autocmd("TextYankPost", {
-  callback = function()
-    require("vim.highlight").on_yank { higroup = "Visual", timeout = 200 }
-  end,
-  group = general,
-  desc = "Highlight when yanking",
-})
+-- autocmd("TextYankPost", {
+--   callback = function()
+--     require("vim.highlight").on_yank { higroup = "Visual", timeout = 200 }
+--   end,
+--   group = general,
+--   desc = "Highlight when yanking",
+-- })
 
 autocmd({ "BufEnter", "BufNewFile" }, {
   callback = function()
@@ -182,7 +182,7 @@ autocmd("Colorscheme", {
 })
 
 -- Load Colorscheme and highlight settings
-vim.api.nvim_create_autocmd("VimEnter", {
+autocmd("VimEnter", {
   callback = function()
     vim.cmd('LoadColorscheme')
   end

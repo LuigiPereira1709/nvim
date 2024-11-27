@@ -1,4 +1,3 @@
- 
 -- NOTE: Utility plugins
 return {
   -- Utilities

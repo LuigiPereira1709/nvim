@@ -1,4 +1,3 @@
--- NOTE: Package installer
 return {
   "williamboman/mason.nvim",
   event = "BufReadPost",
@@ -13,14 +12,16 @@ return {
     "MasonLog",
   },
   dependencies = {
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
     "williamboman/mason-lspconfig.nvim",
+    "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
     local mason = require "mason"
     local mason_lspconfig = require "mason-lspconfig"
-    local on_attach = require("plugins.lsp.opts").on_attach
-    local on_init = require("plugins.lsp.opts").on_init
-    local capabilities = require("plugins.lsp.opts").capabilities
+    local on_attach = require("plugins.lsp.configs.opts").on_attach
+    local on_init = require("plugins.lsp.configs.opts").on_init
+    local capabilities = require("plugins.lsp.configs.opts").capabilities
 
     mason.setup {
       ui = {

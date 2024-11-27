@@ -1,8 +1,7 @@
--- NOTE: Improve Other LSP Functionalities
-return {
-  "nvimdev/lspsaga.nvim",
-  event = "LspAttach",
-  init = function()
+return{
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
+ init = function()
     vim.keymap.set("n", "<leader>la", "<cmd>Lspsaga code_action<cr>", { desc = "Lspsaga | Code Action", silent = true })
     vim.keymap.set("n", "<leader>lo", "<cmd>Lspsaga outline<cr>", { desc = "Lspsaga | Code Outline", silent = true })
     vim.keymap.set(
@@ -150,4 +149,11 @@ return {
       },
     },
   },
-}
+    config = function ()
+        require("lspsaga").setup({})
+    end,
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-tree/nvim-web-devicons",
+    },
+ }
