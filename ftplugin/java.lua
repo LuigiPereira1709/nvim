@@ -27,7 +27,15 @@ for _, file in pairs(equinox_path) do
 end
 
 WORKSPACE_PATH = vim.fn.stdpath "data" .. "/workspace/"
+-- if vim.g.os == "Darwin" then
+  -- OS_NAME = "mac"
+-- elseif vim.g.os == "Linux" then
 OS_NAME = "linux"
+-- elseif vim.g.os == "Windows" then
+--   OS_NAME = "win"
+-- else
+--   vim.notify("Unsupported OS", vim.log.levels.WARN, { title = "Jdtls" })
+-- end
 
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 
@@ -69,8 +77,8 @@ local config = {
     "-data",
     workspace_dir,
   },
-  on_attach = require("plugins.lsp.configs.opts").on_attach,
-  capabilities = require("plugins.lsp.configs.opts").capabilities,
+  on_attach = require("plugins.lsp.opts").on_attach,
+  capabilities = require("plugins.lsp.opts").capabilities,
   -- 💀
   -- This is the default if not provided, you can remove it. Or adjust as needed.
   -- One dedicated LSP server & client will be started per unique root_dir

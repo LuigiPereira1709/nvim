@@ -10,11 +10,11 @@ vim.keymap.set("n", "<leader>R", "<cmd>%d+<cr>", { desc = "General | Remove All 
 vim.keymap.set("n", "<leader>y", "<cmd>%y+<cr>", { desc = "General | Yank All Text", silent = true })
 
 -- Write Changes
--- vim.keymap.set("n", "ww", ":w!<cr>", { desc = "Write | Keep", silent = true, noremap = true})
+vim.keymap.set("n", "ss", ":w!<cr>", { desc = "Write | Keep", silent = true, noremap = true})
 -- vim.keymap.set("n", "wq", ":wq!<cr>", { desc = "Write | Close", silent = true })
 
 -- Quit
-vim.keymap.set("n", "<leader>q", "<cmd>qa!<cr>", { desc = "General | Quit", silent = true })
+vim.keymap.set("n", "<leader>q", "<cmd>wqa!<cr>", { desc = "General | Quit", silent = true })
 vim.keymap.set("n", "qq", "<cmd>q<cr>", { desc = "Simple | Quit", silent = true })
 
 -- Close Buffer

@@ -1,4 +1,4 @@
-local headers = require "config.headers"
+local headers = require "core.headers"
 
 local randomHeader = function()
   local keys = {}
@@ -53,7 +53,7 @@ local center = {
 }
 local message = function()
   math.randomseed(os.time())
-  local messages = require "config.messages"
+  local messages = require "core.messages"
   local randomIndex = math.random(#messages)
   return messages[randomIndex]
 end

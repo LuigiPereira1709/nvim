@@ -44,20 +44,20 @@ autocmd("FileType", {
   desc = "Disable Fold & StatusColumn",
 })
 
--- Remove this if there's an issue
-autocmd({ "BufReadPost", "BufNewFile" }, {
-  once = true,
-  callback = function()
-    -- In wsl 2, just install xclip
-    -- Ubuntu
-    -- sudo apt install xclip
-    -- Arch linux
-    -- sudo pacman -S xclip
-    vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-  end,
-  group = general,
-  desc = "Lazy load clipboard",
-})
+-- -- Remove this if there's an issue
+-- autocmd({ "BufReadPost", "BufNewFile" }, {
+--   once = true,
+--   callback = function()
+--     -- In wsl 2, just install xclip
+--     -- Ubuntu
+--     -- sudo apt install xclip
+--     -- Arch linux
+--     -- sudo pacman -S xclip
+--     vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
+--   end,
+--   group = general,
+--   desc = "Lazy load clipboard",
+-- })
 
 autocmd("TermOpen", {
   callback = function()
@@ -79,13 +79,13 @@ autocmd("BufReadPost", {
   desc = "Go To The Last Cursor Position",
 })
 
--- autocmd("TextYankPost", {
---   callback = function()
---     require("vim.highlight").on_yank { higroup = "Visual", timeout = 200 }
---   end,
---   group = general,
---   desc = "Highlight when yanking",
--- })
+autocmd("TextYankPost", {
+  callback = function()
+    require("vim.highlight").on_yank { higroup = "Visual", timeout = 200 }
+  end,
+  group = general,
+  desc = "Highlight when yanking",
+})
 
 autocmd({ "BufEnter", "BufNewFile" }, {
   callback = function()
@@ -116,7 +116,7 @@ autocmd({ "FocusLost", "BufLeave", "BufWinLeave", "InsertLeave" }, {
   -- nested = true, -- for format on save
   callback = function()
     if vim.bo.filetype ~= "" and vim.bo.buftype == "" then
-      vim.cmd "silent! w"
+      vim.cmd "silent! w!"
     end
   end,
   group = general,
@@ -182,7 +182,7 @@ autocmd("Colorscheme", {
 })
 
 -- Load Colorscheme and highlight settings
-autocmd("VimEnter", {
+vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     vim.cmd('LoadColorscheme')
   end

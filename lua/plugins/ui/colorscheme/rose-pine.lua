@@ -21,7 +21,7 @@ return {
 
       styles = {
         bold = true,
-        italic = false,
+        italic = true,
         transparency = true,
       },
 
@@ -30,14 +30,14 @@ return {
 
         -- hint = "#a697c4",
         note = "pine",
-        error = "#b02a52",
+        error = "love",
         warn = "#e0d184",
       },
 
       palette = {
         main = {
           _nc = "#110f1a",
-          base = "#0e0e0e",
+          base = "#000000",
           -- surface = "#0e0e0e",
           -- overlay = "#2c2c30",
           overlay = "NONE",

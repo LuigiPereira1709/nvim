@@ -1,14 +1,35 @@
-vim.g.mapleader = ' '
+require "core.globals"
 
--- Load autocmds
-require("config.utils")
-require("config.autocommands")
+if vim.version().minor >= 11 then
+  vim.tbl_add_reverse_lookup = function(tbl)
+    for k, v in pairs(tbl) do
+    tbl[v] = k
+    end
+  end
+end
 
--- Load keymaps 
-require("config.mappings")
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
--- Load options
-require("config.options")
+if not vim.loop.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+end
 
--- Load lazy
-require("config.lazy")
+vim.opt.runtimepath:prepend(lazypath)
+
+-- NOTE: lazy.nvim options
+local lazy_config = require "core.lazy"
+
+-- NOTE: Load plugins
+require("lazy").setup({
+  { import = "plugins" },
+}, lazy_config)
+
+require "options"
+
+vim.schedule(function()
+  require "mappings"
+end)
+
+require "myinit"
