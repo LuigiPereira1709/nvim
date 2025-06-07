@@ -11,7 +11,7 @@ end
 
 local center = {
   {
-    desc = "Find File ",
+    desc = " Find File ",
     key = "f",
     icon = " ",
     key_format = " %s",
@@ -19,7 +19,7 @@ local center = {
     group = "@markup.heading.1.markdown",
   },
   {
-    desc = "Find Project ",
+    desc = " Find Project ",
     key = "p",
     icon = " ",
     key_format = " %s",
@@ -27,7 +27,7 @@ local center = {
     group = "@markup.heading.1.markdown",
   },
   {
-    desc = "Find Sessions ",
+    desc = " Find Sessions ",
     key = "s",
     icon = " ",
     key_format = " %s",
@@ -35,7 +35,7 @@ local center = {
     group = "@markup.heading.2.markdown",
   },
   {
-    desc = "New Spring Project",
+    desc = " New Spring Project",
     key = "b",
     icon = " ",
     key_format = " %s",
@@ -43,7 +43,7 @@ local center = {
     group = "@markup.heading.3.markdown",
   },
   {
-    desc = "Exit                                                      ",
+    desc = " Exit                                                      ",
     key = "q",
     icon = " ",
     key_format = " %s",

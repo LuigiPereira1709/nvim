@@ -55,6 +55,6 @@ for name, value in pairs(options) do
 end
 
 -- add binaries installed by mason.nvim to path
-vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, vim.g.path_separator)
-  .. vim.g.path_delimiter
-  .. vim.env.PATH
+-- vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, vim.g.path_separator)
+--   .. vim.g.path_delimiter
+--   .. vim.env.PATH

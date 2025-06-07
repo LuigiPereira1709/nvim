@@ -13,7 +13,7 @@ return {
   cmd = "Oil",
   opts = {
     -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
-    delete_to_trash = false,
+    delete_to_trash = true,
     view_options = {
       -- Show files and directories that start with "."
       show_hidden = true,

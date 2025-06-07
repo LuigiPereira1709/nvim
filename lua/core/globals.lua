@@ -18,8 +18,8 @@ local global = {
   maplocalleader = "\\",
   disable_autoformat = true,
   os = os,
-  path_delimiter = os == "Windows" and ";" or ":",
-  path_separator = os == "Windows" and "\\" or "/",
+  -- path_delimiter = os == "Windows" and ";" or ":",
+  -- path_separator = os == "Windows" and "\\" or "/",
 }
 
 for name, value in pairs(global) do
