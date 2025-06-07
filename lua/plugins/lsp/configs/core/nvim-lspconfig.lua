@@ -1,6 +1,10 @@
 --  NOTE: LSP Configuration
 return {
 	"neovim/nvim-lspconfig",
+	event = {
+		"BufReadPost",
+		"BufNewFile",
+	},
 	init = function()
 		vim.keymap.set("n", "<leader>lf", "<cmd>Format<cr>", { desc = "LSP | Format", silent = true })
 		vim.keymap.set("n", "<leader>lF", "<cmd>FormatToggle<cr>", { desc = "LSP | Toggle Autoformat", silent = true })
@@ -104,7 +108,7 @@ return {
 
 		local servers = require("mason-lspconfig").get_installed_servers()
 		for _, server in ipairs(servers) do
-        configure(server)
+			configure(server)
 		end
 	end,
 }

@@ -1,7 +1,8 @@
--- NOTE: Package installer
+-- -- NOTE: Package installer
 return {
 	"williamboman/mason.nvim",
 	event = {
+		-- "VeryLazy",
 		"BufReadPost",
 		"BufNewFile",
 	},
@@ -22,7 +23,7 @@ return {
 		config = function()
 			local mason = require("mason")
 			-- local path = require "mason-core.path"
-			local mason_lspconfig = require("mason-lspconfig")
+			-- local mason_lspconfig = require("mason-lspconfig")
 
 			mason.setup({
 				ui = {
@@ -38,17 +39,18 @@ return {
 				-- install_root_dir = path.concat { vim.fn.stdpath "config", "/lua/custom/mason" },
 			})
 
-		-- 	mason_lspconfig.setup({
-		-- 		ensure_installed = {},
-		-- 		automatic_enable = {
-		-- 			exclude = {
-		-- 				"jdtls", -- conflicts with nvim-jdtls
-		-- 				"ts_ls", -- conflicts with typescript-tools
-  --           "pyright", -- conflicts with pyright-langserver
-  --           "lua_ls", -- conflicts with lua-language-server
-		-- 			},
-		-- 		},
-		-- 	})
+			-- mason_lspconfig.setup({
+			-- 	ensure_installed = {
+			-- 		"pyright",
+			-- 		"lua_ls",
+			-- 	},
+			-- 	automatic_enable = {
+			-- 		exclude = {
+			-- 			"jdtls", -- conflicts with nvim-jdtls
+			-- 			"ts_ls", -- conflicts with typescript-tools
+			-- 		},
+			-- 	},
+			-- })
 		end,
 	},
 	opts = {
