@@ -19,6 +19,3 @@ How did you get here, man? Deep in the GitHub jungle, configuring Neovim? Or may
 **May the force be with you, and have an awesome day!**
 
 ---
-
-Happy Hacking, `bro!`
-
