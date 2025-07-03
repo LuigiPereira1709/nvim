@@ -1,14 +1,21 @@
 return {
 	"kiddos/gemini.nvim",
-	enabled = true,
-	event = "VeryLazy",
+	enabled = false,
+	event = {
+		"BufReadPost",
+		"BufNewFile",
+	},
 	-- build = {
 	-- 	"pip install -r requirements.txt",
 	-- 	":UpdateRemotePlugins",
 	-- },
 	opts = {
+		model_config = {
+			completion_delay = 60,
+		},
 		completion = {
-			completion_delay = 200,
+			enabled = false,
+			completion_delay = 60,
 		},
 	},
 }

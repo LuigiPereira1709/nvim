@@ -1,8 +1,7 @@
--- -- NOTE: Package installer
+-- NOTE: Package installer
 return {
-	"williamboman/mason.nvim",
+	"mason-org/mason.nvim",
 	event = {
-		-- "VeryLazy",
 		"BufReadPost",
 		"BufNewFile",
 	},
@@ -18,45 +17,62 @@ return {
 		"MasonUninstallAll",
 		"MasonLog",
 	},
-	dependencies = {
-		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			local mason = require("mason")
-			-- local path = require "mason-core.path"
-			-- local mason_lspconfig = require("mason-lspconfig")
-
-			mason.setup({
-				ui = {
-					border = vim.g.border_enabled and "rounded" or "none",
-					-- Whether to automatically check for new versions when opening the :Mason window.
-					check_outdated_packages_on_open = false,
-					icons = {
-						package_pending = " ",
-						package_installed = " ",
-						package_uninstalled = " ",
-					},
-				},
-				-- install_root_dir = path.concat { vim.fn.stdpath "config", "/lua/custom/mason" },
-			})
-
-			-- mason_lspconfig.setup({
-			-- 	ensure_installed = {
-			-- 		"pyright",
-			-- 		"lua_ls",
-			-- 	},
-			-- 	automatic_enable = {
-			-- 		exclude = {
-			-- 			"jdtls", -- conflicts with nvim-jdtls
-			-- 			"ts_ls", -- conflicts with typescript-tools
-			-- 		},
-			-- 	},
-			-- })
-		end,
-	},
 	opts = {
+		ui = {
+			border = vim.g.border_enabled and "rounded" or "none",
+			-- Whether to automatically check for new versions when opening the :Mason window.
+			check_outdated_packages_on_open = false,
+			icons = {
+				package_pending = " ",
+				package_installed = " ",
+				package_uninstalled = " ",
+			},
+		},
+		-- install_root_dir = path.concat { vim.fn.stdpath "config", "/lua/custom/mason" },
 		registries = {
 			"github:nvim-java/mason-registry",
 			"github:mason-org/mason-registry",
+		},
+	},
+	dependencies = {
+		{
+			"mason-org/mason-lspconfig.nvim",
+			dependencies = {
+				"mason-org/mason.nvim",
+				"neovim/nvim-lspconfig",
+			},
+			config = function()
+				-- NOTE: Load LSP Installed
+				vim.schedule(function()
+					local ok_mason, mason_lspconfig = pcall(require, "mason-lspconfig")
+					local ok_opts, opts = pcall(require, "plugins.lsp.opts")
+					if not (ok_mason and ok_opts) then
+						return
+					end
+
+					vim.lsp.config("*", {
+						capabilities = opts.capabilities,
+						on_attach = opts.on_attach,
+						on_init = opts.on_init,
+					})
+
+					local servers = mason_lspconfig.get_installed_servers()
+					local excluded = { "ts_ls", "jdtls" }
+
+					for _, server in ipairs(servers) do
+						if not vim.tbl_contains(excluded, server) then
+							-- Load LSP Settings(If Exists)
+							local ok_settings, settings = pcall(require, "plugins.lsp.settings." .. server)
+							if ok_settings then
+								vim.lsp.config(string.lower(server), settings)
+							end
+
+							-- Enable LSP
+							vim.lsp.enable(server)
+						end
+					end
+				end)
+			end,
 		},
 	},
 }

@@ -1,4 +1,5 @@
 local formatters_by_ft = {
+	bash = { "shfmt" },
 	lua = { "stylua" },
 	python = { "black" },
 	java = { "google_java_format" },

@@ -1,7 +1,7 @@
 -- NOTE: Syntax Highlighting
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = "BufRead",
+	event = "BufReadPost",
 	dependencies = {
 		-- ts-autotag utilizes treesitter to understand the code structure to automatically close tsx tags
 		"windwp/nvim-ts-autotag",
@@ -18,9 +18,12 @@ return {
 			ensure_installed = {
 				"vim",
 				"vimdoc",
+				"hurl",
+				"bash",
 				"lua",
 				"python",
 				"java",
+				"go",
 				"javascript",
 				"typescript",
 				"html",

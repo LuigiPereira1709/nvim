@@ -35,29 +35,29 @@ return {
 			},
 		}
 
-		-- local signs = { Error = "", Warn = "", Hint = "󰌵", Info = "" }
+		local signs = { Error = "✖", Warn = "▲", Hint = "•", Info = "i" }
 
 		-- if vim.version().minor >= 11 then
-		-- 	config.signs = {
-		-- 		text = {
-		-- 			[vim.diagnostic.severity.ERROR] = signs.Error,
-		-- 			[vim.diagnostic.severity.WARN] = signs.Warn,
-		-- 			[vim.diagnostic.severity.HINT] = signs.Hint,
-		-- 			[vim.diagnostic.severity.INFO] = signs.Info,
-		-- 		},
-		-- 		linehl = {
-		-- 			[vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-		-- 			[vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
-		-- 			[vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
-		-- 			[vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
-		-- 		},
-		-- 		numhl = {
-		-- 			[vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-		-- 			[vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
-		-- 			[vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
-		-- 			[vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
-		-- 		},
-		-- 	}
+		config.signs = {
+			text = {
+				[vim.diagnostic.severity.ERROR] = signs.Error,
+				[vim.diagnostic.severity.WARN] = signs.Warn,
+				[vim.diagnostic.severity.HINT] = signs.Hint,
+				[vim.diagnostic.severity.INFO] = signs.Info,
+			},
+			linehl = {
+				-- [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+				-- [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+				-- [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+				-- [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+			},
+			numhl = {
+				-- [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+				-- [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+				-- [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
+				-- [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
+			},
+		}
 		-- else
 		-- 	for type, icon in pairs(signs) do
 		-- 		local hl = "DiagnosticSign" .. type
@@ -80,35 +80,6 @@ return {
 			--   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 			--     border = "rounded",
 			--   })
-		end
-
-		local configure = function(server_name)
-			local on_attach = require("plugins.lsp.opts").on_attach
-			local on_init = require("plugins.lsp.opts").on_init
-			local capabilities = require("plugins.lsp.opts").capabilities
-
-			local opts = {
-				on_attach = on_attach,
-				on_init = on_init,
-				capabilities = capabilities,
-			}
-
-			local require_ok, server = pcall(require, "plugins.lsp.settings." .. server_name)
-			if require_ok then
-				opts = vim.tbl_deep_extend("force", opts, server)
-			end
-
-			-- if vim.version().minor >= 11 then
-			vim.lsp.config(server_name, opts)
-			vim.lsp.enable(server_name)
-			-- else
-			-- require("lspconfig")[server_name].setup(opts)
-			-- end
-		end
-
-		local servers = require("mason-lspconfig").get_installed_servers()
-		for _, server in ipairs(servers) do
-			configure(server)
 		end
 	end,
 }
