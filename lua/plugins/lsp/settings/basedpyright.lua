@@ -1,9 +1,6 @@
 return {
 	settings = {
-		-- pyright = {},
 		python = {
-			vendorPath = "./venv",
-			-- venvPath = "./venv",
 			analysis = {
 				autoImportCompletions = true,
 				autoSearchPaths = true,
@@ -11,6 +8,7 @@ return {
 				typeCheckingMode = "on",
 				useLibraryCodeForTypeshedBinaries = true,
 			},
+			vendorPath = "./venv",
 		},
 	},
 }
