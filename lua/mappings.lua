@@ -14,7 +14,6 @@ vim.keymap.set("v", "y", '"+y', { desc = "General | Yank selected text", silent 
 
 -- Write Changes
 vim.keymap.set("n", "ss", ":w!<cr>", { desc = "Write | Keep", silent = true, noremap = true })
--- vim.keymap.set("n", "wq", ":wq!<cr>", { desc = "Write | Close", silent = true })
 
 -- Quit
 vim.keymap.set("n", "<leader>q", "<cmd>wqa!<cr>", { desc = "General | Quit", silent = true })
@@ -248,11 +247,6 @@ vim.keymap.set("n", "<leader>nv", function()
 	local version = vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch
 	return vim.notify(version, vim.log.levels.INFO, { title = "Neovim Version" })
 end, { desc = "Neovim | Version", silent = true })
-
--- Run Code
-vim.keymap.set("n", "<leader>nr", function()
-	RunCode()
-end, { desc = "Neovim | Run Code", silent = true })
 
 -- Clean
 vim.keymap.set("n", "<leader>pc", "<cmd>Lazy clean<cr>", { desc = "Lazy | Clean", silent = true })

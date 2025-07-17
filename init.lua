@@ -1,15 +1,5 @@
 require("core.globals")
 
-vim.o.termguicolors = true
-
-if vim.version().minor >= 11 then
-	vim.tbl_add_reverse_lookup = function(tbl)
-		for k, v in pairs(tbl) do
-			tbl[v] = k
-		end
-	end
-end
-
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 

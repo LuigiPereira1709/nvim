@@ -3,7 +3,6 @@ return {
   { import = 'plugins.ui.utils' },
   { import = 'plugins.ui.statusline' },
   { import = 'plugins.ui.layout' },
-  { import = 'plugins.ui.fun' },
   { import = 'plugins.ui.enchancement' },
 }
 

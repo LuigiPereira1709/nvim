@@ -3,8 +3,6 @@ if not status_ok then
 	return
 end
 
--- local bufnr = vim.api.nvim_get_current_buf()
-
 local java_debug_path = vim.fn.stdpath("data") .. "/mason/packages/java-debug-adapter/"
 local java_test_path = vim.fn.stdpath("data") .. "/mason/packages/java-test/"
 local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls/"
@@ -116,15 +114,6 @@ local config = {
 		allow_incremental_sync = true,
 	},
 }
-
--- local keymap = vim.keymap.set
-
--- keymap("n", "A-o", ":lua require'jdtls'.organize_imports()<cr>", { silent = true, buffer = bufnr })
--- keymap("n", "crv", ":lua require'jdtls'.extract_variable()<cr>", { silent = true, buffer = bufnr })
--- keymap("v", "crv", "<Esc>:lua require'jdtls'.extract_variable(true)<cr>", { silent = true, buffer = bufnr })
--- keymap("n", "crc", ":lua require'jdtls'.extract_constant()<cr>", { silent = true, buffer = bufnr })
--- keymap("v", "crc", "<Esc>:lua require'jdtls'.extract_constant(true)<cr>", { silent = true, buffer = bufnr })
--- keymap("v", "crm", "<Esc>:lua require'jdtls'.extract_method(true)<cr>", { silent = true, buffer = bufnr })
 
 vim.cmd([[
     command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)
