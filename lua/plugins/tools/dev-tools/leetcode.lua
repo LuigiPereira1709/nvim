@@ -9,6 +9,5 @@ return {
 	},
 	opts = {
 		lang = "go",
-		image_support = true,
 	},
 }
