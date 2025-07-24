@@ -12,7 +12,7 @@ return {
 	lazy = false,
 	init = function()
 		require("rose-pine").setup({
-			-- variante = "main",
+			variante = "main",
 			disable_background = true,
 
 			enable = {
@@ -28,7 +28,6 @@ return {
 			groups = {
 				panel = "NONE",
 
-				-- hint = "#a697c4",
 				note = "pine",
 				error = "love",
 				warn = "#e0d184",
@@ -36,23 +35,8 @@ return {
 
 			palette = {
 				main = {
-					-- _nc = "#110f1a",
-					-- base = "#000000",
-					-- surface = "#0e0e0e",
-					-- overlay = "NONE",
-					-- muted = "#4c4862",
-					-- subtle = "#676385",
-					-- text = "#dfdcef",
-					-- love = "#b34f6d",
-					-- gold = "#cfcfbe",
-					-- rose = "#dbcad0",
-					-- pine = "#5e838f",
-					-- foam = "#6a94a2",
-					-- iris = "#a697c4",
-					-- highlight_low = "#18162b",
-					-- highlight_med = "#2f2b40",
-					-- highlight_high = "#3e3a53",
-					-- none = "NONE",
+					base = "NONE",
+					overlay = "NONE",
 				},
 			},
 			highlight_groups = {
