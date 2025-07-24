@@ -1,10 +1,16 @@
 return {
 	settings = {
 		gopls = {
+			staticcheck = true,
 			analyses = {
 				unusedparams = true,
+				unusedvariables = true,
 			},
-			staticcheck = true,
+			semanticTokens = true,
+			semanticTokenTypes = {
+				number = true,
+				string = true,
+			},
 			hints = {
 				assignVariableTypes = true,
 				compositeLiteralFields = true,
