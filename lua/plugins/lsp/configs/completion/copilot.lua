@@ -1,5 +1,5 @@
 return {
 	event = "BufReadPost",
-	enabled = true,
+	enabled = false,
 	"github/copilot.vim",
 }
