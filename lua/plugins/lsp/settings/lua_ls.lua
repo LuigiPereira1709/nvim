@@ -2,7 +2,7 @@ return {
 	settings = {
 		Lua = {
 			semantic = {
-				enable = false,
+				enable = true,
 			},
 			hint = { enable = true },
 			diagnostics = {
