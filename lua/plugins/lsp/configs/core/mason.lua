@@ -30,7 +30,6 @@ return {
 		},
 		-- install_root_dir = path.concat { vim.fn.stdpath "config", "/lua/custom/mason" },
 		registries = {
-			"github:nvim-java/mason-registry",
 			"github:mason-org/mason-registry",
 		},
 	},
@@ -57,7 +56,7 @@ return {
 					})
 
 					local servers = mason_lspconfig.get_installed_servers()
-					local excluded = { "ts_ls", "jdtls" }
+					local excluded = { "ts_ls" }
 
 					for _, server in ipairs(servers) do
 						if not vim.tbl_contains(excluded, server) then

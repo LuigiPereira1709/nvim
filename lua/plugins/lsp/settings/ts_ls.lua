@@ -3,7 +3,7 @@ local vue_language_server_path = mason_registry.get_package("vue-language-server
 	.. "/node_modules/@vue/language-server"
 
 return {
-	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "typescript.tsx" },
 	init_options = {
 		plugins = {
 			{

@@ -12,7 +12,7 @@ return {
 	lazy = false,
 	init = function()
 		require("rose-pine").setup({
-			variante = "main",
+			variant = "main",
 			disable_background = true,
 
 			enable = {

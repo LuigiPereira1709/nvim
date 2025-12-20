@@ -65,9 +65,6 @@ return {
 			-- Extensions for File Type with Luasnip
 			require("luasnip").filetype_extend("javascriptreact", { "html" })
 			require("luasnip").filetype_extend("typescriptreact", { "html" })
-			require("luasnip").filetype_extend("svelte", { "html" })
-			require("luasnip").filetype_extend("vue", { "html" })
-			require("luasnip").filetype_extend("php", { "html" })
 			require("luasnip").filetype_extend("javascript", { "javascriptreact" })
 			require("luasnip").filetype_extend("typescript", { "typescriptreact" })
 
@@ -90,12 +87,6 @@ return {
 			--   },
 			-- })
 		end,
-	},
-	-- Dependências adicionais
-	{
-		"saecki/crates.nvim",
-		tag = "v0.4.0",
-		opts = {},
 	},
 }
 -- {

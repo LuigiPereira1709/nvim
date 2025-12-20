@@ -1,6 +1,7 @@
 -- NOTE: Tmux navigation
 return {
   "alexghergh/nvim-tmux-navigation",
+  enable = false,
   cond = vim.fn.executable "tmux" == 1,
   event = vim.env.TMUX ~= nil and "VeryLazy" or nil,
   opts = {

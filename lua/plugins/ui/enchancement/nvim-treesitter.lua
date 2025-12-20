@@ -24,6 +24,7 @@ return {
 				"python",
 				"java",
 				"go",
+				"gotmpl",
 				"javascript",
 				"typescript",
 				"html",
