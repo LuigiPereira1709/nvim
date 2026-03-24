@@ -1,7 +1,10 @@
 -- NOTE: Syntax Highlighting
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = "BufReadPost",
+	-- event = "BufReadPost",
+  lazy= false,
+  -- TODO: Refactor to use the main branch
+  branch = "master",
 	dependencies = {
 		-- ts-autotag utilizes treesitter to understand the code structure to automatically close tsx tags
 		"windwp/nvim-ts-autotag",
