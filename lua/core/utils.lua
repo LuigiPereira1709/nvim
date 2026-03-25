@@ -185,16 +185,16 @@ command("RemoveTrailingSpaces", function()
 	vim.cmd(":%s/s+$//e")
 end, { nargs = "*", desc = "Remove all trailing spaces " })
 
-function ClickGit()
-	local status_ok, _ = pcall(require, "toggleterm")
-	if not status_ok then
-		return vim.notify("toggleterm.nvim isn't installed!!!")
-	end
+-- function ClickGit()
+-- 	local status_ok, _ = pcall(require, "toggleterm")
+-- 	if not status_ok then
+-- 		return vim.notify("toggleterm.nvim isn't installed!!!")
+-- 	end
 
-	local Terminal = require("toggleterm.terminal").Terminal
-	local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
-	lazygit:toggle()
-end
+-- 	local Terminal = require("toggleterm.terminal").Terminal
+-- 	local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+-- 	lazygit:toggle()
+-- end
 
 function ClickSplit()
 	vim.cmd("vsp")

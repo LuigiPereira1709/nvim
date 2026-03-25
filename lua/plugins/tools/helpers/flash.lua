@@ -3,6 +3,7 @@
 return {
   "folke/flash.nvim",
   event = "CmdlineEnter",
+  enabled = false,
   opts = {
     labels = "asdfghjklqwertyuiopzxcvbnm",
     search = {

@@ -23,9 +23,9 @@ return {
       { desc = "ToggleTerm | Vertical Terminal", silent = true }
     )
 
-    vim.keymap.set("n", "<leader>gg", function()
-      ClickGit()
-    end, { desc = "ToggleTerm | Lazygit", silent = true })
+    -- vim.keymap.set("n", "<leader>gg", function()
+    --   ClickGit()
+    -- end, { desc = "ToggleTerm | Lazygit", silent = true })
   end,
   cmd = {
     "ToggleTerm",
