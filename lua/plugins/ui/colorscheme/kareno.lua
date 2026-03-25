@@ -11,7 +11,7 @@ return {
 	lazy = false,
 	config = function()
 		require("kareno").setup({
-			-- variant = "yami",
+			variant = "yoru",
 			disable_background = true,
 
 			enable = {
