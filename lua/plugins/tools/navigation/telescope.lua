@@ -7,6 +7,7 @@ return {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-telescope/telescope-ui-select.nvim",
 		"kkharji/sqlite.lua",
+		"nvim-telescope/telescope-dap.nvim",
 	},
 
 	keys = {
@@ -160,6 +161,21 @@ return {
 			end,
 			desc = "Find Sessions",
 		},
+		{
+			"<leader>fdb",
+			"<cmd>Telescope dap list_breakpoints<cr>",
+			desc = "Find | DAP Breakpoints",
+		},
+		{
+			"<leader>fdv",
+			"<cmd>Telescope dap variables<cr>",
+			desc = "Find | DAP Variables",
+		},
+		{
+			"<leader>fdc",
+			"<cmd>Telescope dap commands<cr>",
+			desc = "Find | DAP Commands",
+		},
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -235,5 +251,6 @@ return {
 		telescope.load_extension("projects")
 		telescope.load_extension("fzf")
 		telescope.load_extension("ui-select")
+		telescope.load_extension("dap")
 	end,
 }

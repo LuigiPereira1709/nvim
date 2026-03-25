@@ -9,8 +9,8 @@ return {
     vim.keymap.set("n", "<leader>dt", "<cmd>lua require'dap'.step_out()<cr>", { desc = "DAP | Step Out", silent = true })
     
     -- Breakpoints
-    vim.keymap.set("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", { desc = "DAP | Breakpoint", silent = true })
-    vim.keymap.set("n", "<leader>dx", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", { desc = "DAP | Breakpoint Condition", silent = true })
+    vim.keymap.set("n", "<leader>db", "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>", { desc = "DAP | Breakpoint", silent = true })
+    vim.keymap.set("n", "<leader>dx", "<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint()<cr>", { desc = "DAP | Breakpoint Condition", silent = true })
 
     -- Debugging Control 
     vim.keymap.set("n", "<leader>dq", "<cmd>lua require'dap'.terminate()<cr>", { desc = "DAP | Stop Debugging", silent = true })

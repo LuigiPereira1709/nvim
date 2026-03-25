@@ -42,7 +42,31 @@ return {
 				-- lualine_b = { "branch", "diff", "diagnostics" },
 				lualine_b = { "branch", "diagnostics" }, -- remove the diff for a better optimization
 				-- display the filename in section c
-				lualine_c = { "filename" },
+				lualine_c = {
+					{ "filename" },
+					{
+						function()
+							return " " .. require("dap").status()
+						end,
+						cond = function()
+							return package.loaded["dap"] and require("dap").status() ~= ""
+						end,
+						color = { fg = "#ff5c57" },
+					},
+					{
+						function()
+							local status = require("neotest").status.count()
+							if status.passed > 0 or status.failed > 0 then
+								return "󰙨 " .. status.passed .. " 󰚌 " .. status.failed
+							end
+							return ""
+						end,
+						cond = function()
+							return package.loaded["neotest"]
+						end,
+						color = { fg = "#85e89d" },
+					},
+				},
 				-- display the file encoding type, os, and filetype in section x
 				lualine_x = { "encoding", "fileformat", "filetype" },
 				-- display where you are at in the file in section y
