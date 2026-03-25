@@ -1,0 +1,56 @@
+{
+  "If Error Check": {
+    "prefix": "ife",
+    "body": [
+      "if err != nil {",
+      "\treturn ${1:err}",
+      "}"
+    ],
+    "description": "If error check (My Snippet)"
+  },
+  "If Error Fatal": {
+    "prefix": "iff",
+    "body": [
+      "if err != nil {",
+      "\tlog.Fatalf(\"${1:failed to ...}: %v\", err)",
+      "}"
+    ],
+    "description": "If error log fatal (My Snippet)"
+  },
+  "Test Function": {
+    "prefix": "tf",
+    "body": [
+      "func Test${1:FunctionName}(t *testing.T) {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "New test function (My Snippet)"
+  },
+  "Table Test": {
+    "prefix": "tt",
+    "body": [
+      "tests := []struct {",
+      "\tname string",
+      "}{",
+      "\t{",
+      "\t\tname: \"${1:case 1}\",",
+      "\t},",
+      "}",
+      "for _, tt := range tests {",
+      "\tt.Run(tt.name, func(t *testing.T) {",
+      "\t\t${0}",
+      "\t})",
+      "}"
+    ],
+    "description": "Table driven test (My Snippet)"
+  },
+  "Main Function": {
+    "prefix": "main",
+    "body": [
+      "func main() {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Main function (My Snippet)"
+  }
+}

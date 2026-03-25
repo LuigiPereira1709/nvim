@@ -31,6 +31,8 @@ return {
 
 			-- Lazily load the vscode like snippets
 			require("luasnip.loaders.from_vscode").lazy_load()
+			-- Custom Snippets
+			require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
 
 			cmp.setup({
 				completion = {
