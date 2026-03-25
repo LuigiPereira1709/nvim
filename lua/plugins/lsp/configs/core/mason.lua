@@ -35,6 +35,19 @@ return {
 	},
 	dependencies = {
 		{
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			opts = {
+				ensure_installed = {
+					"gopls", 
+					"delve", 
+					"staticcheck", 
+					"gofumpt", 
+				},
+				auto_update = true,
+				run_on_start = true,
+			},
+		},
+		{
 			"mason-org/mason-lspconfig.nvim",
 			dependencies = {
 				"mason-org/mason.nvim",
@@ -75,3 +88,4 @@ return {
 		},
 	},
 }
+
