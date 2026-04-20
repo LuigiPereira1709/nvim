@@ -1,7 +1,6 @@
 -- NOTE: Global Variables
--- local sysname = vim.uv.os_uname().sysname
--- local os = sysname:match "Windows" and "Windows" or sysname:match "Linux" and "Linux" or sysname -- Windows, Linux, Darwin, NetBSD,...
-local os = "Linux"
+local sysname = vim.uv.os_uname().sysname
+local os = sysname:match "Windows" and "Windows" or sysname:match "Linux" and "Linux" or sysname:match "Darwin" and "Mac" or sysname
 
 local global = {
 	mkdp_auto_close = false, -- Don't Exit Preview When Switching Buffers

@@ -84,10 +84,10 @@ vim.keymap.set("n", "<leader>ow", function()
 end, { desc = "Options | Toggle Wrap", silent = true })
 
 -- Go to upper window
-vim.keymap.set("n", "<leader>bj", "<C-w>j", { desc = "General | Go to upper window", silent = true, noremap = true })
+vim.keymap.set("n", "<leader>bj", "<C-w>j", { desc = "General | Go to lower window", silent = true, noremap = true })
 
 -- Go to lower window
-vim.keymap.set("n", "<leader>bk", "<C-w>k", { desc = "General | Go to lower window", silent = true, noremap = true })
+vim.keymap.set("n", "<leader>bk", "<C-w>k", { desc = "General | Go to upper window", silent = true, noremap = true })
 
 -- Go to left window
 vim.keymap.set("n", "<leader>bh", "<C-w>h", { desc = "General | Go to left window", silent = true, noremap = true })

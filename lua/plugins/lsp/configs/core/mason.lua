@@ -38,10 +38,34 @@ return {
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			opts = {
 				ensure_installed = {
-					"gopls", 
-					"delve", 
-					"staticcheck", 
-					"gofumpt", 
+					-- Go
+					"gopls",
+					"delve",
+					"staticcheck",
+					"gofumpt",
+					"golangci-lint",
+					"revive",
+
+					-- JSON
+					"json-lsp",
+					"fixjson",
+
+					-- Lua
+					"lua-language-server",
+					"stylua",
+
+					-- Web & General
+					"vtsls",
+					"eslint-lsp",
+					"tailwindcss-language-server",
+					"css-lsp",
+					"prettier",
+					"yaml-language-server",
+
+					-- DB & Shell
+					"sql-formatter",
+					"bash-language-server",
+					"beautysh",
 				},
 				auto_update = true,
 				run_on_start = true,
