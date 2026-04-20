@@ -181,70 +181,23 @@ return {
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
 
-		local function smart_close(prompt_bufnr)
-			actions.close(prompt_bufnr)
-			vim.schedule(function()
-				collectgarbage("collect")
-			end)
-		end
-
-		-- Autocomando para personalizar o buffer do Telescope
-		vim.api.nvim_create_autocmd("FileType", {
-			pattern = "TelescopeResults",
-			callback = function(ctx)
-				vim.api.nvim_buf_call(ctx.buf, function()
-					vim.fn.matchadd("TelescopeParent", "\t\t.*$")
-					vim.api.nvim_set_hl(0, "TelescopeParent", { link = "Comment" })
-				end)
-			end,
-		})
-
 		telescope.setup({
 			defaults = {
-				-- layout_strategy = "center",
 				sorting_strategy = "ascending",
-				mappings = {
-					i = {
-						["<esc>"] = smart_close,
-						["<C-c>"] = smart_close,
-						["<C-u>"] = false,
-					},
-				},
-				previewer = true,
-				file_ignore_patterns = { ".git/" },
 				layout_config = {
 					prompt_position = "top",
-					preview_cutoff = 120,
-					horizontal = {
-						width = 0.7,
-						height = 0.7,
-						preview_width = 0.6,
-						mirror = false,
+				},
+				mappings = {
+					i = {
+						["<C-k>"] = actions.move_selection_previous,
+						["<C-j>"] = actions.move_selection_next,
+						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 					},
 				},
-				color_devicons = true,
 			},
 			extensions = {
-				fzf = {
-					fuzzy = true,
-					override_generic_sorter = true,
-					override_file_sorter = true,
-					case_mode = "smart_case",
-				},
 				["ui-select"] = {
-					require("telescope.themes").get_dropdown({
-						previewer = true,
-						initial_mode = "normal",
-						sorting_strategy = "ascending",
-						layout_strategy = "horizontal",
-						layout_config = {
-							horizontal = {
-								width = 0.5,
-								height = 0.4,
-								preview_width = 0.6,
-							},
-						},
-					}),
+					require("telescope.themes").get_dropdown(),
 				},
 			},
 		})

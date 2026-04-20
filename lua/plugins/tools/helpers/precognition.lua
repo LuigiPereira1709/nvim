@@ -1,7 +1,7 @@
 -- NOTE: Vim Motions Guide
 return {
   "tris203/precognition.nvim",
-  enabled = true,
+  enabled = false,
   init = function()
     vim.keymap.set("n", "<leader>op", function()
       require("precognition").toggle()

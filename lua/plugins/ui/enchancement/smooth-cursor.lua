@@ -1,6 +1,7 @@
 return {
 	{
-		"gen740/SmoothCursor.nvim",
+		  "gen740/SmoothCursor.nvim",
+  enabled = false,
 		init = function()
 			require("smoothcursor").setup({
 				type = "matrix",

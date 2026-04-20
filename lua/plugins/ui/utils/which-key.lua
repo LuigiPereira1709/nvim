@@ -20,19 +20,22 @@ return {
     require("which-key").setup(opts)
     require("which-key").add {
       {
-        -- { "<leader>s", group = "Sessions", icon = "󰔚" },
-        { "<leader>T", group = "Tests", icon = "󰙨" },
+        { "<leader>b", group = "Buffers & Windows", icon = "󰓩" },
         { "<leader>d", group = "Debugging", icon = "" },
-        { "<leader>f", group = "Find", icon = "" },
+        { "<leader>f", group = "Find & Search", icon = "" },
         { "<leader>g", group = "Git", icon = "󰊢" },
         { "<leader>h", group = "Harpoon", icon = "" },
+        { "<leader>j", group = "Java", icon = "" },
         { "<leader>l", group = "LSP", icon = "" },
         { "<leader>n", group = "Neovim", icon = "" },
         { "<leader>o", group = "Options", icon = "" },
         { "<leader>p", group = "Plugins", icon = "" },
         { "<leader>r", group = "Runner", icon = "" },
+        { "<leader>s", group = "Sessions", icon = "󰔚" },
         { "<leader>t", group = "Terminal", icon = "" },
+        { "<leader>T", group = "Tests", icon = "󰙨" },
         { "<leader>v", group = "Venv", icon = "" },
+        { "<leader>z", group = "Layout", icon = "" },
       },
     }
   end,

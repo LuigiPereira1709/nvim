@@ -9,27 +9,27 @@ return {
 		"nvim-neotest/neotest-go",
 	},
 	init = function()
-		vim.keymap.set("n", "<leader>tn", function()
+		vim.keymap.set("n", "<leader>Tn", function()
 			require("neotest").run.run()
 		end, { desc = "Test | Nearest", silent = true })
 
-		vim.keymap.set("n", "<leader>tf", function()
+		vim.keymap.set("n", "<leader>Tf", function()
 			require("neotest").run.run(vim.fn.expand("%"))
 		end, { desc = "Test | File", silent = true })
 
-		vim.keymap.set("n", "<leader>td", function()
+		vim.keymap.set("n", "<leader>Td", function()
 			require("neotest").run.run({ strategy = "dap" })
 		end, { desc = "Test | Debug Nearest", silent = true })
 
-		vim.keymap.set("n", "<leader>ts", function()
+		vim.keymap.set("n", "<leader>Ts", function()
 			require("neotest").summary.toggle()
 		end, { desc = "Test | Summary", silent = true })
 
-		vim.keymap.set("n", "<leader>to", function()
+		vim.keymap.set("n", "<leader>To", function()
 			require("neotest").output_panel.toggle()
 		end, { desc = "Test | Output Panel", silent = true })
 
-		vim.keymap.set("n", "<leader>tq", function()
+		vim.keymap.set("n", "<leader>Tq", function()
 			require("neotest").run.stop()
 		end, { desc = "Test | Stop", silent = true })
 	end,
