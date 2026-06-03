@@ -26,6 +26,7 @@ return {
     vim.keymap.set("n", "<leader>dr", function() require("dapui").toggle(1) end, { desc = "DAP | UI (Scopes/Breakpoints)", silent = true })
     vim.keymap.set("n", "<leader>du", function() require("dapui").toggle(2) end, { desc = "DAP | UI (Stacks/Watches)", silent = true })
     vim.keymap.set("n", "<leader>dg", function() require("dapui").toggle(3) end, { desc = "DAP | UI (REPL/Logs)", silent = true })
+    vim.keymap.set("n", "<leader>ds", function() require("dapui").float_element("scopes", { enter = true }) end, { desc = "DAP | Scopes (Float)", silent = true })
     vim.keymap.set("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", { desc = "DAP | Run Last", silent = true })
   end,
   dependencies = {

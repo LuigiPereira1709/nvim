@@ -166,9 +166,5 @@ autocmd("Colorscheme", {
 	end,
 })
 
--- Load Colorscheme and highlight settings
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		vim.cmd("LoadColorscheme")
-	end,
-})
+-- Load Colorscheme and highlight settings immediately
+vim.cmd("LoadColorscheme")

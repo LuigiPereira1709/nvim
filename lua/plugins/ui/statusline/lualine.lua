@@ -1,9 +1,10 @@
 return {
 	"nvim-lualine/lualine.nvim",
+	lazy = false,
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
-	init = function()
+	config = function()
 		-- call the setup function with properties to define how our lualine will look
 		require("lualine").setup({
 			options = {
